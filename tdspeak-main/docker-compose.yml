@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  tdspeak_1:
+    image: localhost:5000/tdspeak
+    ports:
+      - "8000:8000"
+  nginx:
+    image: localhost:5000/httpd_for_tdspeak
+    ports:
+      - "80:80"
+    depends_on:
+      - tdspeak_1
